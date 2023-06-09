@@ -2,7 +2,7 @@
 # First stage
 #
 
-FROM maven:3.8.7-eclipse-temurin-19 AS build
+FROM maven:3.9.2-eclipse-temurin-11 AS build
 
 COPY src /home/app/src
 COPY pom.xml /home/app
@@ -18,7 +18,7 @@ RUN mvn -f /home/app/pom.xml clean package
 # second stage
 #
 
-FROM eclipse-temurin:19
+FROM docker pull openjdk:19-jdk-oracle
 
 ARG REDISHOST
 ARG REDISPORT
