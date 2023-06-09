@@ -2,7 +2,7 @@
 # First stage
 #
 
-FROM maven:3.9.2-eclipse-temurin-11 AS build
+FROM maven:3.8.2-jdk-11 AS build
 
 COPY src /home/app/src
 COPY pom.xml /home/app
