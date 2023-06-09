@@ -18,7 +18,7 @@ RUN mvn -f /home/app/pom.xml clean package
 # second stage
 #
 
-FROM openjdk:19-oracle
+FROM eclipse-temurin:19
 
 ARG REDISHOST
 ARG REDISPORT
