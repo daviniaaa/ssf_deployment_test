@@ -18,7 +18,7 @@ RUN mvn -f /home/app/pom.xml clean package
 # second stage
 #
 
-FROM docker pull openjdk:19-jdk-oracle
+FROM openjdk:19-jdk-oracle
 
 ARG REDISHOST
 ARG REDISPORT
