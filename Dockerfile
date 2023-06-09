@@ -2,7 +2,7 @@
 # First stage
 #
 
-FROM maven:3.8.2-jdk-11 AS build
+FROM maven:3.8.3-openjdk-17 AS build
 
 COPY src /home/app/src
 COPY pom.xml /home/app
@@ -18,14 +18,14 @@ RUN mvn -f /home/app/pom.xml clean package
 # second stage
 #
 
-FROM openjdk:19-jdk-oracle
+FROM openjdk:17-oracle
 
 ARG REDISHOST
 ARG REDISPORT
 ARG REDISUSER
 ARG REDISPASSWORD
 
-COPY --from=build /home/app/target/ssf-deployment-test-0.0.1-SNAPSHOT.jar /usr/local/lib/ssf-deployment-test.jar
+COPY --from=build /home/app/target/ssf_Assessment-0.0.1-SNAPSHOT.jar /usr/local/lib/ssf_Assessment.jar
 
 EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "/usr/local/lib/ssf-deployment-test.jar"]
+ENTRYPOINT ["java", "-jar", "/usr/local/lib/ssf_Assessment.jar"]
