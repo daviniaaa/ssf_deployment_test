@@ -2,7 +2,7 @@
 # First stage
 #
 
-FROM maven:3.8.3-openjdk-19 AS build
+FROM maven:3-openjdk-19 AS build
 
 COPY src /home/app/src
 COPY pom.xml /home/app
